@@ -1,6 +1,219 @@
+:root {
+    --lavender: #acdef6;
+    --purple: #d587d5;
+    --yellow: #F5F1DC;
+    --cyan: #73C8D2;
+    --white: #ffffff;
+    --grey: #e5e5e5;
+    --black: #000000;
+}
+
 * {
     padding: 0;
     margin: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: inherit;
 }
+
+html {
+    font-size: 10px;
+    font-family: "Jersey 10", sans-serif;;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    padding: 2rem;
+    flex-grow: 1;
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    flex: 1 0 40rem;
+    max-width: 60rem;
+    font-size: 2rem;
+
+    border: 2px solid black;
+    color: var(--black);
+    border-radius: 0.8rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 1.2rem;
+    font-size: 2.4rem;
+}
+
+footer {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+}
+
+header, footer {
+    text-align: center;
+    background: var(--black);
+    color: var(--white);
+}
+
+.title {
+    padding: 1rem;
+    font-size: 3.2rem;
+    text-align: center;
+    border-bottom: 2px solid black;
+    background-color: black;
+    color: white;
+}
+
+.info-1 {
+    color: #f63ef9;
+}
+
+.info-2 {
+    color: #fc3232;
+}
+
+.info-3 {
+    color: #b822ea;
+}
+
+.info-4 {
+    color: #3bf469;
+}
+
+.info-5 {
+    color: #9e9e02;
+}
+
+.info-6 {
+    color: #5884f2;
+}
+
+.info {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.revive,
+.defeat {
+    padding: 2rem;
+    width: 60%;
+    margin: auto;
+    cursor: pointer;
+    color: white;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.delete {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.defeat {
+    background: #e54a4a;
+}
+
+.revive {
+    background: #4de64d;
+}
+
+.newContainer {
+    margin: 0 auto 2rem;
+}
+
+.newButton {
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    background: black;
+    color: white;
+    font-size: 2rem;
+    border-radius: 4px;
+    margin-bottom: 2rem auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #00000085;
+}
+
+.form {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 4px;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.form label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form label input,
+.form label select {
+    box-shadow: 2px 2px black;
+    padding: 0.5rem;
+}
+
+.form label input {
+    width: 60%;
+}
+
+.form label input:focus,
+.form label select:focus {
+    border: none;
+    outline: none;
+}
+
+.addConfirmButton {
+    width: max-content;
+    background: black;
+    color: white;
+    cursor: pointer;
+    padding: 1rem 4rem;
+    margin: auto;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 7.5px;
+    }
+} 

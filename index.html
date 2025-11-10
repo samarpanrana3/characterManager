@@ -6,9 +6,49 @@
     <title>Character Manager (My Party)</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
     <script src="javascript.js" defer></script>
 </head>
 <body>
-
+    <header>My Party Character Manager</header>
+    <div class="main">
+    </div>
+    <div class="newContainer">
+        <button class="newButton">
+            Add New Character
+        </button>
+    </div>
+    <div class="overlay hidden">
+        <form action="" class="form">
+            <label for="form-name-input" class="form-name-container">
+                <span class="form-name-text">Name: </span>
+                <input type="text" name="form-name" id="form-name-input" value="Unknown">
+            </label>
+            <label for="form-role-input" class="form-role-container">
+                <span class="form-role-text">Role: </span>
+                <select name="form-role" id="form-role-input">
+                    <option value="Warrior">Warrior</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Healer">Healer</option>
+                    <option value="Protector">Protector</option>
+                </select>
+            </label>
+            <label for="form-level-input" class="form-level-container">
+                <span class="form-level-text">Level: </span>
+                <input type="number" name="form-levl" id="form-level-input" max="99" min="1" value="1">
+            </label>
+            <label for="form-status-input" class="form-status-container">
+                <span class="form-status-text">Status: </span>
+                <select name="form-status" id="form-status-input">
+                    <option value="true">Alive</option>
+                    <option value="false">Defeated</option>
+                </select>
+            </label>
+            <button type="submit" class="addConfirmButton">Add</button>
+        </form>
+    </div>
+    <footer>@SamarpanRana2025</footer>
 </body>
 </html>
