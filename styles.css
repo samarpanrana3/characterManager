@@ -190,10 +190,11 @@ header, footer {
 .form label select {
     box-shadow: 2px 2px black;
     padding: 0.5rem;
+    width: 60%;
 }
 
 .form label input {
-    width: 60%;
+
 }
 
 .form label input:focus,
@@ -215,5 +216,25 @@ header, footer {
 @media screen and (max-width: 800px) {
     html {
         font-size: 7.5px;
+    }
+
+    .form {
+        padding: 1.5rem;
+        width: 60%;
+    }
+} 
+
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 7px;
+    }
+
+    .card {
+        font-size: 2.5rem;
+    }
+
+    .form {
+        padding: 1.5rem;
+        width: 80%;
     }
 } 
