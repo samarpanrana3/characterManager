@@ -1,5 +1,7 @@
 const myParty = [];
-const main = document.querySelector('.main')
+const main = document.querySelector('.main');
+let overlayOpen = false;
+let newButton = document.querySelector('.newButton');
 
 function Character (name, role, level, status) {
     this.name = name;
@@ -28,8 +30,10 @@ function clearParty () {
 }
 
 function renderParty () {
+    let count = 0;
     for (let currentCharacter of myParty) {0
         let newCard = createElement ('div', ['card'], '', main);
+        newCard.dataset.index = count;
          let newTitle = createElement('div', ['title'], currentCharacter.name, newCard);
         let newDelete = createElement('div', ['delete'], 'X', newCard)
         let newInfo = createElement ('div', ['info', `info-${generateRandomNumber(6)}`], '', newCard);
@@ -49,6 +53,7 @@ function renderParty () {
            let newStatus = createElement ('div', ['status'], 'Defeated', newStatusContainer); 
            let newReviveButton = createElement ('button', ['revive'], 'Revive', newInfo); 
         } 
+        count++;
     }
 }
 
@@ -62,8 +67,17 @@ function createElement (type, elementClasses, text, parentElement) {
     return newElement;
 }
 
-let overlayOpen = false;
-let newButton = document.querySelector('.newButton');
+main.addEventListener("click", (e) => {
+    if (e.target.classList.contains('delete')) {
+        let currentCard = (e.target.closest('.card'));
+        let indexOfCard = currentCard.dataset.index;
+        myParty.splice(indexOfCard,1);
+        clearParty();
+        renderParty();
+    }
+})
+
+
 newButton.addEventListener("click", (e) => {
     toggleModal();
     overlayOpen = true;
@@ -85,8 +99,7 @@ form.addEventListener("click" , (e) => {
     e.preventDefault();
 
     if  (e.target.classList.contains('addConfirmButton')) {
-        toggleModal();
-        form.reset();
+        
 
         let nameInput = document.querySelector('#form-name-input');
         let roleInput = document.querySelector('#form-role-input');
@@ -95,6 +108,8 @@ form.addEventListener("click" , (e) => {
         
         addCharacterToParty(nameInput.value, roleInput.value, levelInput.value, statusInput.value);
 
+        toggleModal();
+        form.reset();
         clearParty();
         renderParty();
    }
