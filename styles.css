@@ -127,6 +127,8 @@ header, footer {
 }
 
 .delete {
+    width: 12%;
+    text-align: right;
     position: absolute;
     top: 2%;
     right: 2%;
@@ -193,10 +195,6 @@ header, footer {
     width: 60%;
 }
 
-.form label input {
-
-}
-
 .form label input:focus,
 .form label select:focus {
     border: none;
@@ -222,6 +220,10 @@ header, footer {
         padding: 1.5rem;
         width: 60%;
     }
+
+    .delete {
+        width: 15%;
+    }
 } 
 
 @media screen and (max-width: 400px) {
@@ -236,5 +238,9 @@ header, footer {
     .form {
         padding: 1.5rem;
         width: 80%;
+    }
+
+    .delete {
+        width: 17%;
     }
 } 
