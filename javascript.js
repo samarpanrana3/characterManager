@@ -47,11 +47,11 @@ function renderParty () {
         let newStatusText = createElement ('div', ['status-text'], 'Status:', newStatusContainer);
         if (currentCharacter.isAlive == true) {
             let newStatus = createElement ('div', ['status'], 'Alive', newStatusContainer);
-            let newDefeatButton = createElement ('button', ['defeat'], 'Defeat', newInfo);
+            let newDefeatButton = createElement ('button', ['defeat', 'statusButton'], 'Defeat', newInfo);
         }
         else {
            let newStatus = createElement ('div', ['status'], 'Defeated', newStatusContainer); 
-           let newReviveButton = createElement ('button', ['revive'], 'Revive', newInfo); 
+           let newReviveButton = createElement ('button', ['revive', 'statusButton'], 'Revive', newInfo); 
         } 
         count++;
     }
@@ -72,6 +72,21 @@ main.addEventListener("click", (e) => {
         let currentCard = (e.target.closest('.card'));
         let indexOfCard = currentCard.dataset.index;
         myParty.splice(indexOfCard,1);
+        clearParty();
+        renderParty();
+    }
+
+    if (e.target.classList.contains('statusButton')) {
+        let currentCard = (e.target.closest('.card'));
+        let indexOfCard = currentCard.dataset.index;
+        
+        if (e.target.classList.contains('revive')) {
+            myParty[indexOfCard].isAlive = true;
+        }
+        else if (e.target.classList.contains('defeat')) {
+            myParty[indexOfCard].isAlive = false;
+        }
+
         clearParty();
         renderParty();
     }
